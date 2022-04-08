@@ -19,7 +19,7 @@
  * @param Rowd
  * @param Cold
  */
-void character::character(int helth, float mvmt_spd, bool Playa, int Loc, int Facer, int Rowd, int Cold) {
+character::character(int helth, float mvmt_spd, bool Playa, int Loc, int Facer, int Rowd, int Cold) {
 
 }
 
