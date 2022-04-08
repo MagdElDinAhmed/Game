@@ -11,7 +11,7 @@
 #include "character.h"
 
 
-class enemy: public character, public major, public character {
+class enemy: public character {
 public: 
     bool Line_of_sight;
     bool Found_player;
