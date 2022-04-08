@@ -9,7 +9,8 @@
 #include "player.h"
 
 
-class character: public player {
+class character
+{
 public: 
     int Health;
     float movement_speed;
