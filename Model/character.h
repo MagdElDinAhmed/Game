@@ -6,8 +6,6 @@
 #ifndef _CHARACTER_H
 #define _CHARACTER_H
 
-#include "player.h"
-
 
 class character
 {
