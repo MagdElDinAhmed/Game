@@ -6,8 +6,6 @@
 #ifndef _CHARACTER_H
 #define _CHARACTER_H
 
-#include "player.h"
-
 
 class character
 {
@@ -29,7 +27,7 @@ public:
  * @param Rowd
  * @param Cold
  */
-void character(int helth, float mvmt_spd, bool Playa, int Loc, int Facer, int Rowd, int Cold);
+character(int helth, float mvmt_spd, bool Playa, int Loc, int Facer, int Rowd, int Cold);
     
 projectile shoot();
     
