@@ -31,13 +31,13 @@ void projectile::Location_Check() {
 void projectile::Pain(void &character target) {
     if (Shooter == 1 && target.player == false) //shooter being 1 means player shot it and it checks if it hit an enemy
     {
-        target.health -= damage; //a canned damage value
+        target->health -= damage; //a canned damage value
     }
     else if (Shooter == 2 && target.player == true) //shooter being 2 means enemy shot it and it checks if it hit the player
     {
-        target.health -= damage; //a canned damage value
+        target->health -= damage; //a canned damage value
     }
-    if (target.health <= 0)
+    if (target->health <= 0)
     {
         delete target;
     }
