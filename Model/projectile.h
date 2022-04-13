@@ -13,6 +13,8 @@ public:
     float cool_down;
     float proj_speed;
     int Shooter;
+    int col;
+    int row;
     
 void Location_Check();
     
