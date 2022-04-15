@@ -21,6 +21,10 @@ void projectile::Location_Check() {
         target = characterLoc[row][col];
         Pain(target);
     }
+    if (map[row][col] < 0)
+    {
+        delete this;
+    }
     return;
 }
 
@@ -44,6 +48,29 @@ void projectile::Pain(void &character target) {
     return;
 }
 
+void projectile::movement() //make this a function that moves periodically and is called in the character class
+{
+    switch (direction)
+    {
+    case up:
+        row--;
+        Location_Check();
+        break;
+    case down:
+        row++;
+        Location_Check;
+        break;
+    case right:
+        col++;
+        Location_Check();
+        break;
+    case left:
+        col--;
+        Location_Check();
+        break;
+    }
+}
+
 /**
  * @param dmg
  * @param range
@@ -51,10 +78,11 @@ void projectile::Pain(void &character target) {
  * @param proj_speed
  * @param Shooter
  */
-void projectile::projectile(int dmg, int range, float cool_down, float proj_speed, int Shooter) {
+void projectile::projectile(int dmg, int range, float cool_down, float proj_speed, int Shooter, direct direction) {
     damage = dmg;
     this->range = range;
     this->cool_down = cool_down;
     this->proj_speed = proj_speed;
     this->Shooter = Shooter;
+    this->direction = direction;
 }
