@@ -13,19 +13,35 @@
 /**
  * @return void
  */
-void projectile::Location_Check() {
-    if (presence[row][col] == true)
+bool projectile::Location_Check(int presence[row][col], int playerPresence[row][col]) // got it, this func is used to check if projectile reached the exact location for player/enemy to reduce health
     {
-        //need a getter for a character object, so I created yet another array (this time an array of character addresses)
-        character* temp;
-        target = characterLoc[row][col];
-        Pain(target);
+        if (Shooter == 1)
+        {
+            if (charLoc[row][col][1] != NULL)
+            {
+                character* temp;
+                target = characterLoc[row][col][1];
+                Pain(target);
+                return true;
+            }
+        }
+        if (Shooter == 2)
+        {
+            if (charLoc[row][col][0] != NULL)
+            {
+                character* temp;
+                target = characterLoc[row][col][0];
+                Pain(target);
+                return true;
+            }
+        }
+
+        if (map[row][col] < 0) // if projectile hits a wall
+        {
+            return true;
+        }
+        return;
     }
-    if (map[row][col] < 0)
-    {
-        delete this;
-    }
-    return;
 }
 
 /**
@@ -33,14 +49,9 @@ void projectile::Location_Check() {
  * @return void
  */
 void projectile::Pain(void &character target) {
-    if (Shooter == 1 && target.player == false) //shooter being 1 means player shot it and it checks if it hit an enemy
-    {
-        target->health -= damage; //a canned damage value
-    }
-    else if (Shooter == 2 && target.player == true) //shooter being 2 means enemy shot it and it checks if it hit the player
-    {
-        target->health -= damage; //a canned damage value
-    }
+    //shooter being 1 means player shot it and it checks if it hit an enemy
+    target->health -= damage; //a canned damage value
+
     if (target->health <= 0)
     {
         delete target;
