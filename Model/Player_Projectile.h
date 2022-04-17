@@ -21,7 +21,7 @@ static int Get_Shot_Count();
  * @param proj_speed
  * @param Shooter
  */
-void projectile(int dmg, int range, float cool_down, float proj_speed, int Shooter);
+Player_Projectile(int dmg, int range, float cool_down, float proj_speed, int Shooter) :projectile(dmg, range, cool_down, proj_speed, Shooter);
     
 void Operation1();
 private: 

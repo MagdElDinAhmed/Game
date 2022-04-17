@@ -14,7 +14,7 @@
  * @return static int
  */
 static int Player_Projectile::Get_Shot_Count() {
-    return null;
+    return Shot_count;
 }
 
 /**
@@ -24,8 +24,8 @@ static int Player_Projectile::Get_Shot_Count() {
  * @param proj_speed
  * @param Shooter
  */
-void Player_Projectile::projectile(int dmg, int range, float cool_down, float proj_speed, int Shooter) {
-
+Player_Projectile::Player_Projectile(int dmg, int range, float cool_down, float proj_speed, int Shooter):projectile(dmg, range, cool_down, proj_speed, Shooter) {
+    Shot_count++;
 }
 
 void Player_Projectile::Operation1() {
